@@ -5,6 +5,9 @@ var Board = (function(){
 
     var ROW_NAMES = ["row1", "row2", "row3", "row4", "row5",
                      "col1", "col2", "col3", "col4", "col5", "tlbr", "bltr"];
+    
+    const ROW_LABELS = ["🡺", "🡺", "🡺", "🡺", "🡺",
+                        "🡻", "🡻", "🡻", "🡻", "🡻", "🡾", "🡽"];
 
     function sortColors(colors) {
         var orderedColors = [];
@@ -100,6 +103,16 @@ var Board = (function(){
     Square.prototype.setJson = function(json) {
         this.$square.html('<div class="starred hidden"></div><div class="shadow"></div>' +
                           '<div class="vertical-center text-container"></div>');
+        if("count" in json) {
+            this.$square.html.append(`<div class="vertical-bottom counter">
+                                        <span class="count-adjust count-up">➕</span>
+                                            <span class="total-count">
+                                                <span class="current-count">${"currentCount" in json ? json["currentCount"]:"0"}</span>/<span class="max-count">${json["count"]}</span>
+                                            </span>
+                                        <span class="count-adjust count-down">➖</span>
+                                      </div>
+            `);
+        }
         this.$square.children(".text-container").text(json["name"]);
         setSquareColors(this.$square, json["colors"]);
     };
