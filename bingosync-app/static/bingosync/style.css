@@ -22,6 +22,28 @@
     -moz-transform: translateY(-50%);
 }
 
+.bottom-center {
+    /* position: absolute fixes vertical centering in chrome (when the containing td has verticle-align: top) */
+    position: absolute;
+    bottom: 2px;
+    /* Goal has specific width, so rather than using percent we can just use the correct width with padding removed. */
+    width: 95px;
+}
+
+.counter {
+    display: flex;
+    font-size: 85%;
+}
+
+.adjust-count {
+    flex-grow: 1; 
+}
+
+/* Make sure that our text gets double the free space that our buttons do */
+.total-count {
+    flex-grow: 2;
+}
+
 .vertical-center.skew {
     position: relative;
     top: 50%;
