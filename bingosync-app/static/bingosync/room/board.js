@@ -5,6 +5,9 @@ var Board = (function(){
 
     var ROW_NAMES = ["row1", "row2", "row3", "row4", "row5",
                      "col1", "col2", "col3", "col4", "col5", "tlbr", "bltr"];
+    
+    const ROW_LABELS = ["🡺", "🡺", "🡺", "🡺", "🡺",
+                        "🡻", "🡻", "🡻", "🡻", "🡻", "🡾", "🡽"];
 
     function sortColors(colors) {
         var orderedColors = [];
